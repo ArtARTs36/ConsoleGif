@@ -22,11 +22,9 @@ class ImageSource
         return $this;
     }
 
-    public function destroy(): self
+    public function destroy(): void
     {
         imagedestroy($this->resource);
-
-        return $this;
     }
 
     /**
