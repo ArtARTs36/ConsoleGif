@@ -107,17 +107,6 @@ class ImageBuilder
     {
         $this->lastLinePosition += $line->size + ($line->size / 2);
 
-        // @todo вынести в ImageSource
-
-        imagettftext(
-            $this->source->resource(),
-            $line->size,
-            0,
-            2,
-            $this->lastLinePosition,
-            $line->color->allocate($this->source),
-            $this->font->getPath(),
-            $line->text
-        );
+        $this->source->printTextLine($line, 2, $this->lastLinePosition, $this->font);
     }
 }

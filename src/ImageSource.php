@@ -3,6 +3,8 @@
 namespace ArtARTs36\ConsoleGif;
 
 use ArtARTs36\ConsoleGif\Elements\Color;
+use ArtARTs36\ConsoleGif\Elements\Font;
+use ArtARTs36\ConsoleGif\Elements\TextLine;
 
 class ImageSource
 {
@@ -40,5 +42,19 @@ class ImageSource
         imagefill($this->resource, $x, $y, $color->allocate($this));
 
         return $this;
+    }
+
+    public function printTextLine(TextLine $line, int $xPos, int $yPos, Font $font): void
+    {
+        imagettftext(
+            $this->resource,
+            $line->size,
+            0,
+            $xPos,
+            $yPos,
+            $line->color->allocate($this),
+            $font->getPath(),
+            $line->text
+        );
     }
 }
