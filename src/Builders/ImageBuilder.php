@@ -23,7 +23,7 @@ class ImageBuilder
 
     private $font;
 
-    public function __construct(int $width, int $height, Font $font)
+    public function __construct(int $width, int $height, Font $font = null)
     {
         [$this->width, $this->height] = [$width, $height];
         $this->source = $this->createSource();
