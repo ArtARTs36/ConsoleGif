@@ -27,7 +27,7 @@ class ImageBuilder
     {
         [$this->width, $this->height] = [$width, $height];
         $this->source = $this->createSource();
-        $this->font = $font ?? FontFactory::robotto()->regular();
+        $this->font = $font ?? FontFactory::system()->consolas();
     }
 
     public function background(Color $color): self

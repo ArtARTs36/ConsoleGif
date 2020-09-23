@@ -8,6 +8,6 @@ class RobotoFactory extends BasedFactory
 {
     public function regular(): Font
     {
-        return new Font($this->path('Roboto-Regular.ttf'));
+        return $this->createFont('Roboto-Regular.ttf');
     }
 }

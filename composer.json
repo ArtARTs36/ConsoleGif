@@ -12,7 +12,9 @@
     "require": {
         "artarts36/str": "^1.0",
         "ext-gd": "*",
-        "sybio/gif-creator": "^1.0"
+        "sybio/gif-creator": "^1.0",
+        "ext-iconv": "*",
+        "ext-mbstring": "*"
     },
     "autoload": {
         "psr-4": {
