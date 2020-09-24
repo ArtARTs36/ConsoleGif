@@ -18,10 +18,13 @@ class Console
 
     private $user;
 
+    private $background;
+
     public function __construct(ImageBuilder $builder, Animator $animator)
     {
         $this->builder = $builder->background(Color::createBlack());
         $this->animator = $animator->endPaused(20);
+        $this->background = Color::createBlack();
     }
 
     public static function bySize(int $width, int $height): Console
@@ -38,7 +41,7 @@ class Console
 
     public function setBackground(Color $color): self
     {
-        $this->builder->background($color);
+        $this->background = $color;
 
         return $this;
     }
@@ -62,6 +65,7 @@ class Console
             foreach (Str::chars($line) as $char) {
                 $parts[] = $this
                     ->builder
+                    ->background($this->background)
                     ->addChar($char, $color)
                     ->buildWhile()
                     ->resource();

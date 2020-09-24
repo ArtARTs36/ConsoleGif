@@ -12,7 +12,8 @@ class ImageSource
 
     public function __construct(int $width, int $height)
     {
-        $this->resource = imagecreatetruecolor(...func_get_args());
+        //$this->resource = imagecreatetruecolor(...func_get_args());
+        $this->resource = imagecreate($width, $height);
     }
 
     public function toPng(string $path): self
