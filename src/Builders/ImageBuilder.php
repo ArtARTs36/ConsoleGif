@@ -44,13 +44,13 @@ class ImageBuilder
         return $this;
     }
 
-    public function addChar(string $char, bool $withSpace = false): self
+    public function addChar(string $char, Color $color, bool $withSpace = false): self
     {
         if (! empty($this->textLines)) {
             end($this->textLines)
                 ->addChar($withSpace ? ' ' . $char : $char);
         } else {
-            $this->textLines[] = new TextLine($char, Color::createWhite(), 12);
+            $this->textLines[] = new TextLine($char, $color, 12);
         }
 
         return $this;

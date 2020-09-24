@@ -36,6 +36,13 @@ class Console
         return $this;
     }
 
+    public function setBackground(Color $color): self
+    {
+        $this->builder->background($color);
+
+        return $this;
+    }
+
     public function addLines(array $lines): self
     {
         array_push($this->lines, ...array_values($lines));
@@ -47,13 +54,15 @@ class Console
     {
         $parts = [];
 
+        $color = Color::createWhite();
+
         foreach ($this->lines as $line) {
-            $this->user !== null && $this->builder->textLine($this->user, Color::createWhite());
+            $this->user !== null && $this->builder->textLine($this->user, $color);
 
             foreach (Str::chars($line) as $char) {
                 $parts[] = $this
                     ->builder
-                    ->addChar($char)
+                    ->addChar($char, $color)
                     ->buildWhile()
                     ->resource();
             }
